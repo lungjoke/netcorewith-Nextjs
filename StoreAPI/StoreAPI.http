@@ -1,0 +1,47 @@
+@StoreAPI_HostAddress = http://localhost:5096/api
+@StoreAPI_AccessToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiaWFtcGhhbnNhayIsImp0aSI6Ijg1NDdmNmI3LTAwYzMtNDY0MC04YTc1LTg4ZTVmZWI0ZDNkZCIsImV4cCI6MTcxODIyMDY0NiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDk2IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDozMDAwIn0.7gmtalT_Rc_Q4vbQQACRv0OgYD6_1EzkAfPpfG9I6nQ
+
+//Test database
+GET {{StoreAPI_HostAddress}}/Product/testconnectdb
+Accept: application/json
+Authorization: Bearer {{StoreAPI_AccessToken}}
+###
+//get all products
+GET {{StoreAPI_HostAddress}}/Product
+Accept: application/json
+Authorization: Bearer {{StoreAPI_AccessToken}}
+###
+
+GET {{StoreAPI_HostAddress}}/Product/3
+Accept: application/json
+
+###
+
+POST {{StoreAPI_HostAddress}}/Product
+Content-Type: application/json
+
+{
+  "category_id": 1,
+  "product_name": "Mobile Product New2",
+  "unit_price": 10,
+  "product_picture": "https://media-cdn.bnn.in.th/236114/Apple-Acc-AirPods-(3rd%C2%A0generation)-with-Lightning-Charging-Case-1-square_medium.jpg",
+  "unit_in_stock": 100,
+  "created_date": "2021-07-01T00:00:00",
+  "modified_date": "2021-07-01T00:00:00"
+}
+###
+PUT  {{StoreAPI_HostAddress}}/Product/3
+Content-Type: application/json
+
+{
+ "category_id": 1,
+  "product_name": "Mobile Product New2",
+  "unit_price": 10,
+  "product_picture": "https://media-cdn.bnn.in.th/236114/Apple-Acc-AirPods-(3rd%C2%A0generation)-with-Lightning-Charging-Case-1-square_medium.jpg",
+  "unit_in_stock": 100,
+  "created_date": "2021-07-01T00:00:00",
+  "modified_date": "2021-07-01T00:00:00"
+}
+###
+DELETE  {{StoreAPI_HostAddress}}/Product/7
+Accept: application/json
